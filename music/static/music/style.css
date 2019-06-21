@@ -1,0 +1,17 @@
+body{
+    background: white url("images/background.jpg");
+}
+
+.navbar{
+    border-radius:0;
+    font-family: 'Indie Flower', cursive;
+}
+
+.navbar-brand {
+    font-family: 'Indie Flower', cursive;
+}
+
+.main{
+    padding-left: 1%;
+    font-family: 'Lobster Two', cursive;
+}
