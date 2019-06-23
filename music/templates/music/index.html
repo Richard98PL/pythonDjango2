@@ -2,12 +2,21 @@
 {% block title %}Albums{% endblock %}
 {% block body %}
 
-{% if all_albums %}
+{% if object_list %}
     <h3>Hey! Here are all my Albums:</h3>
     <ul>
 
-        {% for x in all_albums %}
-        <li><a href="{% url 'music:detail' x.id %}"> {{ x.album_title }}</a></li>
+        {% for x in object_list %}
+            <form action="{% url 'music:album-delete' x.id %}" method="post" style="display:inline">
+            {% csrf_token %}
+            <li>
+               <img src="{{ x.album_logo }}" class="img-circle" alt="Cinque Terre" width="15%">
+                <a href="{% url 'music:detail' x.id %}"> {{ x.album_title }}</a>
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </li>
+            </form>
         {% endfor %}
     </ul>
 {% else %}
